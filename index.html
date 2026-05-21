@@ -26,10 +26,15 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="container">
-        <h2>Güvenilir, modern ve profesyonel web çözümleri</h2>
-        <p>İşinizi büyütmek için temiz tasarım, hızlı sayfalar ve mobil uyumlu bir yapı sunuyoruz.</p>
-        <a class="button" href="#iletisim">Bize Ulaşın</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h2>Güvenilir, modern ve profesyonel web çözümleri</h2>
+          <p>İşinizi büyütmek için temiz tasarım, hızlı sayfalar ve mobil uyumlu bir yapı sunuyoruz.</p>
+          <a class="button" href="#iletisim">Bize Ulaşın</a>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero-illustration.svg" alt="Kurumsal web tasarım görseli" />
+        </div>
       </div>
     </section>
 
@@ -60,6 +65,29 @@
       </div>
     </section>
 
+    <section id="neden-biz" class="content-section why-choose-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Neden Bizi Seçmelisiniz?</h2>
+          <p>Şirketiniz için sürdürülebilir, güvenilir ve büyümeye hazır web çözümleri sunuyoruz.</p>
+        </div>
+        <div class="why-choose-grid">
+          <article class="why-card">
+            <h3>Uzman Kadro</h3>
+            <p>Alanında deneyimli tasarımcılar ve geliştiricilerle çalışırsınız.</p>
+          </article>
+          <article class="why-card">
+            <h3>Ölçeklenebilir Çözümler</h3>
+            <p>İşiniz büyüdükçe birlikte büyüyebilecek altyapılar sağlıyoruz.</p>
+          </article>
+          <article class="why-card">
+            <h3>Şeffaf İletişim</h3>
+            <p>Proje süresince düzenli raporlar ve net geri bildirimler sunuyoruz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="hakkimizda" class="content-section">
       <div class="container">
         <h2>Hakkımızda</h2>
@@ -69,15 +97,18 @@
 
     <section id="hizmetler" class="content-section">
       <div class="container services-grid">
-        <article>
+        <article class="service-card">
+          <img class="service-icon" src="images/icon-design.svg" alt="Web tasarım ikonu" />
           <h3>Web Tasarım</h3>
           <p>Modern, duyarlı ve kullanıcı odaklı tasarımlar.</p>
         </article>
-        <article>
+        <article class="service-card">
+          <img class="service-icon" src="images/icon-development.svg" alt="Web geliştirme ikonu" />
           <h3>Web Geliştirme</h3>
           <p>Hızlı, güvenli ve standartlara uygun kodlama.</p>
         </article>
-        <article>
+        <article class="service-card">
+          <img class="service-icon" src="images/icon-seo.svg" alt="SEO ikonu" />
           <h3>SEO & Destek</h3>
           <p>Arama motoru uyumu ve sürekli bakım hizmetleri.</p>
         </article>
@@ -98,6 +129,25 @@
           <h3>Global Marka</h3>
           <p>SEO uyumlu içerik ve hız optimizasyonu ile arama sonuçlarında yükseldi.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="yorumlar" class="content-section testimonial-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Müşteri Yorumları</h2>
+          <p>Kurulan iş ortaklıklarımızın sonuçlarını doğrudan müşterilerimizden öğrenin.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <p>"Kurumsal Web ile çalışmak işimizi dijitalde bir üst seviyeye taşıdı. Hızlı ve özenli bir süreçti."</p>
+            <span class="testimonial-author">- Ahmet Yılmaz, ABC Danışmanlık</span>
+          </article>
+          <article class="testimonial-card">
+            <p>"Responsive tasarım ve SEO desteği sayesinde markamız daha görünür hale geldi."</p>
+            <span class="testimonial-author">- Elif Kaya, Tekno Çözümler</span>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -128,7 +178,27 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-grid">
+      <div class="footer-column">
+        <h3>Kurumsal Web</h3>
+        <p>Kurumsal şirketler için modern, güvenli ve etkileyici web deneyimleri tasarlıyoruz.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Hızlı Linkler</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Anasayfa</a></li>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>İletişim</h4>
+        <p>E-posta: info@kurumsalweb.com</p>
+        <p>Telefon: +90 555 123 45 67</p>
+      </div>
+    </div>
+    <div class="container footer-note">
       <p>© 2026 Kurumsal Web. Tüm hakları saklıdır.</p>
     </div>
   </footer>

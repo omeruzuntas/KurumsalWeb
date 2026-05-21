@@ -83,7 +83,17 @@ body {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   color: white;
   padding: 80px 0;
-  text-align: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-copy {
+  max-width: 520px;
 }
 
 .hero h2 {
@@ -92,8 +102,16 @@ body {
 }
 
 .hero p {
-  max-width: 700px;
-  margin: 0 auto 24px;
+  max-width: 620px;
+  margin: 0 0 24px;
+}
+
+.hero-visual img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.18);
 }
 
 .button {
@@ -110,6 +128,21 @@ body {
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 32px rgba(37, 99, 235, 0.18);
+}
+
+.section-header h2 {
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.site-header a:hover,
+.footer-links a:hover {
+  color: white;
 }
 
 .content-section {
@@ -136,6 +169,21 @@ body {
   padding: 28px;
   box-shadow: 0 18px 40px rgba(37, 99, 235, 0.09);
   transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.service-card {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.service-icon {
+  width: 72px;
+  align-self: center;
 }
 
 .feature-card:hover {
@@ -220,7 +268,45 @@ article h3 {
 .site-footer {
   background: #0f172a;
   color: #a5b4fc;
-  padding: 24px 0;
+  padding: 40px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  padding-bottom: 24px;
+}
+
+.footer-column h4,
+.footer-column h3 {
+  margin-top: 0;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 12px 0;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-note {
+  border-top: 1px solid rgba(203, 213, 225, 0.12);
+  padding-top: 18px;
+  margin-top: 24px;
   text-align: center;
 }
 
@@ -233,6 +319,10 @@ article h3 {
   .header-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
   }
 
   .contact-grid {
