@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contact-form');
+  const backToTop = document.getElementById('back-to-top');
 
   if (form) {
     form.addEventListener('submit', function (event) {
@@ -17,6 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('Mesaj gönderildi:', { name, email, message });
       alert('Mesajınız kaydedildi. En kısa zamanda size dönüş yapacağız.');
       form.reset();
+    });
+  }
+
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 });

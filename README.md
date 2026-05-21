@@ -25,11 +25,12 @@ git commit -m "İlk tasarım eklendi"
 - İçeriği kendi şirket ve hizmet bilgilerinle güncelle.
 - Yeni sayfalar veya bölüm ekle.
 - Responsive düzeni zenginleştir.
-- `index.html` içine referanslar bölümü ve iletişim formu eklendi.
+- `index.html` içine referanslar, özellikler ve iletişim formu eklendi.
+- Sticky header ve hızlı navigasyon deneyimi sağlandı.
 
 ## Commit önerisi
 
 ```bash
 git add .
-git commit -m "Referanslar ve iletişim formu eklendi"
+git commit -m "Yeni özellikler, sticky header ve back-to-top butonu eklendi"
 ```
