@@ -10,32 +10,40 @@
   <meta property="og:image" content="images/hero-photo.svg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="portfolio.html" />
+  <meta property="og:url" content="portfolio.html" />
+  <meta property="og:site_name" content="Kurumsal Web" />
+  <meta name="twitter:site" content="@KurumsalWeb" />
+  <link rel="icon" href="logo.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Ana içeriğe atla</a>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
         <img class="logo-image" src="logo.svg" alt="Kurumsal Web logo" />
         <span class="brand-text">Kurumsal Web</span>
       </div>
-      <nav>
+      <nav id="site-navigation">
         <a href="index.html">Anasayfa</a>
         <a href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
-        <a class="active-link" href="portfolio.html">Portföy</a>
+        <a class="active-link" href="portfolio.html" aria-current="page">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
       <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
-    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat" aria-expanded="false" aria-controls="site-navigation">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main-content">
     <nav class="breadcrumb">
       <div class="container">
         <a href="index.html">Anasayfa</a> / <span>Portföy</span>
@@ -44,12 +52,12 @@
     <section class="hero hero-portfolio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h2>Portföyümüz</h2>
+          <h1>Portföyümüz</h1>
           <p>Gerçek müşteriler için üretilmiş projelerimizle dijital başarılarınızı birlikte büyütüyoruz.</p>
           <a class="button" href="contact.html">Projeni Anlat</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-illustration.svg" alt="Portföy görseli" />
+          <img loading="lazy" src="images/hero-illustration.svg" alt="Portföy görseli" />
         </div>
       </div>
     </section>
@@ -60,22 +68,28 @@
           <h2>Öne çıkan projeler</h2>
           <p>Müşterilerimize sunduğumuz profesyonel web çözümlerinden bazıları.</p>
         </div>
-        <div class="portfolio-grid">
-          <article class="portfolio-card">
-            <img src="images/portfolio-1.svg" alt="Portföy proje 1" />
-            <h3>Modern Kurumsal Web</h3>
-            <p>Responsive, hızlı ve güvenli bir kurumsal deneyim.</p>
-          </article>
-          <article class="portfolio-card">
-            <img src="images/portfolio-2.svg" alt="Portföy proje 2" />
-            <h3>E-Ticaret Tasarımı</h3>
-            <p>Satış odaklı, kullanıcı dostu e-ticaret ara yüzleri.</p>
-          </article>
-          <article class="portfolio-card">
-            <img src="images/portfolio-3.svg" alt="Portföy proje 3" />
-            <h3>Marka Kimliği</h3>
-            <p>SEO uyumlu içerik ve şık görsel kimlik çözümleri.</p>
-          </article>
+        <div class="slider-wrapper">
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <img loading="lazy" src="images/portfolio-1.svg" alt="Portföy proje 1" />
+              <h3>Modern Kurumsal Web</h3>
+              <p>Responsive, hızlı ve güvenli bir kurumsal deneyim.</p>
+            </article>
+            <article class="portfolio-card">
+              <img loading="lazy" src="images/portfolio-2.svg" alt="Portföy proje 2" />
+              <h3>E-Ticaret Tasarımı</h3>
+              <p>Satış odaklı, kullanıcı dostu e-ticaret ara yüzleri.</p>
+            </article>
+            <article class="portfolio-card">
+              <img loading="lazy" src="images/portfolio-3.svg" alt="Portföy proje 3" />
+              <h3>Marka Kimliği</h3>
+              <p>SEO uyumlu içerik ve şık görsel kimlik çözümleri.</p>
+            </article>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-button slider-prev">← Önceki</button>
+            <button class="slider-button slider-next">Sonraki →</button>
+          </div>
         </div>
       </div>
     </section>
@@ -128,15 +142,21 @@
           <h2>Müşteri Yorumları</h2>
           <p>İş ortaklarımızın deneyimleri projelerimizin gücünü yansıtıyor.</p>
         </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card">
-            <p>"Kurumsal Web, web sitemizi baştan sona yeniledi; süreç çok net ve başarılıydı."</p>
-            <span class="testimonial-author">- Ahmet Yılmaz, ABC Danışmanlık</span>
-          </article>
-          <article class="testimonial-card">
-            <p>"Web sitemiz artık daha hızlı, daha güvenli ve daha profesyonel görünmeye başladı."</p>
-            <span class="testimonial-author">- Elif Kaya, Tekno Çözümler</span>
-          </article>
+        <div class="slider-wrapper">
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p>"Kurumsal Web, web sitemizi baştan sona yeniledi; süreç çok net ve başarılıydı."</p>
+              <span class="testimonial-author">- Ahmet Yılmaz, ABC Danışmanlık</span>
+            </article>
+            <article class="testimonial-card">
+              <p>"Web sitemiz artık daha hızlı, daha güvenli ve daha profesyonel görünmeye başladı."</p>
+              <span class="testimonial-author">- Elif Kaya, Tekno Çözümler</span>
+            </article>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-button slider-prev">← Önceki</button>
+            <button class="slider-button slider-next">Sonraki →</button>
+          </div>
         </div>
       </div>
     </section>
@@ -161,6 +181,14 @@
             <p>Mutlu müşteri</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="content-section cta-section">
+      <div class="container cta-card">
+        <h2>Proje başarı hikayenizi birlikte yazalım</h2>
+        <p>Portföyümüzden ilham alın ve kurumsal web sitenizi güçlendirmek için bize ulaşın.</p>
+        <a class="button" href="contact.html">Teklif Al</a>
       </div>
     </section>
   </main>

@@ -2,14 +2,17 @@
   color-scheme: light;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --bg: #eef2ff;
-  --surface: #ffffff;
+  --surface: #f8fafc;
+  --surface-strong: #ffffff;
   --text: #0f172a;
-  --muted: #64748b;
+  --muted: #475569;
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --accent: #7c3aed;
   --header: #111827;
-  --header-contrast: #e2e8f0;
+  --header-contrast: #f8fafc;
+  --card-border: rgba(148, 163, 184, 0.18);
+  --shadow: rgba(15, 23, 42, 0.12);
   background: var(--bg);
   color: var(--text);
 }
@@ -22,6 +25,26 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 16px;
+  padding: 12px 16px;
+  background: var(--primary);
+  color: #fff;
+  z-index: 1000;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top 150ms ease, opacity 150ms ease;
+  opacity: 0;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 16px;
+  opacity: 1;
+}
+
 body {
   margin: 0;
   line-height: 1.6;
@@ -31,11 +54,17 @@ body {
 }
 
 body.dark-mode {
-  --bg: #0f172a;
-  --surface: #1e293b;
+  --bg: #050816;
+  --surface: #111827;
+  --surface-strong: #1e293b;
   --text: #e2e8f0;
   --muted: #94a3b8;
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
+  --header: #f8fafc;
+  --header-contrast: #e2e8f0;
+  --card-border: rgba(148, 163, 184, 0.12);
+  background: linear-gradient(180deg, #050816 0%, #111827 100%);
 }
 
 body.dark-mode ::selection {
@@ -162,6 +191,13 @@ body::before {
   text-decoration: none;
 }
 
+.site-header a:focus-visible,
+.site-header a:hover {
+  outline: none;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -262,6 +298,7 @@ body::before {
   max-width: 520px;
 }
 
+.hero h1,
 .hero h2 {
   margin: 0 0 16px;
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -548,19 +585,24 @@ body::before {
 }
 
 .button {
-  display: inline-block;
-  background: white;
-  color: var(--header);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--primary);
+  color: white;
   padding: 14px 28px;
   border-radius: 999px;
-  font-weight: 600;
+  border: 1px solid transparent;
+  font-weight: 700;
   text-decoration: none;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .button:hover {
+  background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.22);
 }
 
 .section-header h2 {
@@ -1101,6 +1143,79 @@ article h3 {
   padding-top: 18px;
   margin-top: 24px;
   text-align: center;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-wrapper .portfolio-grid,
+.slider-wrapper .testimonial-grid {
+  display: block;
+}
+
+.slider-wrapper .portfolio-grid article,
+.slider-wrapper .testimonial-grid article {
+  display: none;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.slider-wrapper .portfolio-grid article:first-child,
+.slider-wrapper .testimonial-grid article:first-child {
+  display: block;
+}
+
+.form-message {
+  min-height: 22px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-message.error {
+  color: #ef4444;
+}
+
+.form-message.success {
+  color: #10b981;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--surface);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: var(--text);
+}
+
+body.dark-mode .contact-form,
+body.dark-mode .testimonial-card,
+body.dark-mode .portfolio-card,
+body.dark-mode .service-card,
+body.dark-mode .feature-card,
+body.dark-mode .case-card,
+body.dark-mode .package-card,
+body.dark-mode .pricing-card,
+body.dark-mode .team-card,
+body.dark-mode .client-card,
+body.dark-mode .case-study-card,
+body.dark-mode .blog-card,
+body.dark-mode .social-card,
+body.dark-mode .contact-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+body.dark-mode .breadcrumb,
+body.dark-mode .content-section:nth-of-type(even) {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+body.dark-mode .site-header,
+body.dark-mode .footer-note {
+  background: rgba(15, 23, 42, 0.9);
 }
 
 @media (max-width: 720px) {

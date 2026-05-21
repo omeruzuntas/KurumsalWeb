@@ -10,32 +10,40 @@
   <meta property="og:image" content="images/hero-photo.svg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="contact.html" />
+  <meta property="og:url" content="contact.html" />
+  <meta property="og:site_name" content="Kurumsal Web" />
+  <meta name="twitter:site" content="@KurumsalWeb" />
+  <link rel="icon" href="logo.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Ana içeriğe atla</a>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
         <img class="logo-image" src="logo.svg" alt="Kurumsal Web logo" />
         <span class="brand-text">Kurumsal Web</span>
       </div>
-      <nav>
+      <nav id="site-navigation">
         <a href="index.html">Anasayfa</a>
         <a href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
-        <a class="active-link" href="contact.html">İletişim</a>
+        <a class="active-link" href="contact.html" aria-current="page">İletişim</a>
       </nav>
       <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
-    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat" aria-expanded="false" aria-controls="site-navigation">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main-content">
     <nav class="breadcrumb">
       <div class="container">
         <a href="index.html">Anasayfa</a> / <span>İletişim</span>
@@ -44,12 +52,12 @@
     <section class="hero hero-contact">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h2>Bizimle iletişime geçin</h2>
+          <h1>Bizimle iletişime geçin</h1>
           <p>Projenizi burada anlatın, sizin için özel bir teklif hazırlayalım.</p>
           <a class="button" href="#contact-form">Mesaj Gönder</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-illustration.svg" alt="İletişim görseli" />
+          <img loading="lazy" src="images/hero-illustration.svg" alt="İletişim görseli" />
         </div>
       </div>
     </section>
@@ -82,7 +90,11 @@
             <li>Adres: İstanbul, Türkiye</li>
           </ul>
         </div>
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form" data-contact-form action="https://formsubmit.co/ajax/info@kurumsalweb.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="Kurumsal Web İletişim Formu" />
+          <input type="hidden" name="_template" value="table" />
+
           <label for="name">Adınız</label>
           <input type="text" id="name" name="name" placeholder="Adınız" required />
 
@@ -111,22 +123,22 @@
       <div class="container">
         <div class="section-header">
           <h2>Hızlı İletişim Kanalları</h2>
-          <p>Uygun olan kanal üzerindenBizimle yanınızda olacak.</p>
+          <p>Uygun olan kanal üzerinden bizimle hızlıca iletişime geçin.</p>
         </div>
         <div class="social-grid">
           <article class="social-card">
             <h3>WhatsApp</h3>
             <p>Hızlı iletişim için WhatsApp'tan ulaşın.</p>
-            <a href="https://wa.me/905551234567" target="_blank" class="button">WhatsApp'ta Mesaj At</a>
+            <a href="https://wa.me/905551234567" target="_blank" rel="noopener noreferrer" class="button">WhatsApp'ta Mesaj At</a>
           </article>
           <article class="social-card">
             <h3>Telefon</h3>
-            <p>Doğrudan aramak için telefon numarasımızı kullanın.</p>
+            <p>Doğrudan aramak için telefon numarasını kullanabilirsiniz.</p>
             <a href="tel:+905551234567" class="button">Ara</a>
           </article>
           <article class="social-card">
             <h3>E-posta</h3>
-            <p>Detaylı bilgi için e-posta gönderiniz.</p>
+            <p>Detayları paylaşmak için e-posta gönderebilirsiniz.</p>
             <a href="mailto:info@kurumsalweb.com" class="button">E-posta Gönder</a>
           </article>
         </div>
@@ -173,6 +185,7 @@
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" aria-label="Başa dön">↑</button>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('contact-form');
+document.addEventListener('DOMContentLoaded', () => {
   const backToTop = document.getElementById('back-to-top');
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const headerInner = document.querySelector('.header-inner');
+  const navLinks = document.querySelectorAll('.site-header nav a');
 
-  // Scroll Animasyonları - Kartları görünüme geçerken fade-in yapar
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
   };
 
-  const observer = new IntersectionObserver(function (entries) {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in');
@@ -19,29 +19,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.metric-card, .feature-card, .service-card, .portfolio-card, .testimonial-card, .team-card, .package-card, .case-card, .pricing-card, .value-card, .contact-card, .client-card, .case-study-card').forEach(el => {
+  document.querySelectorAll('.metric-card, .feature-card, .service-card, .portfolio-card, .testimonial-card, .team-card, .package-card, .case-card, .pricing-card, .value-card, .contact-card, .client-card, .case-study-card, .blog-card, .social-card, .process-step, .faq-item').forEach(el => {
     observer.observe(el);
   });
 
-  // Canlı Sayaç Animasyonu
   const counterElements = document.querySelectorAll('.metric-card strong');
-  let hasAnimated = false;
+  let countersAnimated = false;
 
-  window.addEventListener('scroll', function () {
-    if (!hasAnimated && window.scrollY > 800) {
+  window.addEventListener('scroll', () => {
+    if (!countersAnimated && window.scrollY > 500) {
       counterElements.forEach(el => {
-        const target = parseInt(el.textContent);
+        const target = parseInt(el.textContent.replace(/\D/g, ''), 10);
         if (!isNaN(target)) {
           animateCounter(el, target);
         }
       });
-      hasAnimated = true;
+      countersAnimated = true;
+    }
+
+    if (backToTop) {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
     }
   });
 
   function animateCounter(element, target) {
     let current = 0;
-    const increment = Math.ceil(target / 50);
+    const increment = Math.max(1, Math.floor(target / 50));
     const interval = setInterval(() => {
       current += increment;
       if (current >= target) {
@@ -50,209 +53,185 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         element.textContent = current;
       }
-    }, 30);
+    }, 20);
   }
 
-  // FAQ Accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const header = item.querySelector('h3');
-    if (header) {
-      header.style.cursor = 'pointer';
-      header.addEventListener('click', function () {
+    if (!header) return;
+    header.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const response = i.querySelector('p');
+        if (response) response.style.display = 'none';
+      });
+      if (!isActive) {
         const answer = item.querySelector('p');
-        if (answer.style.display === 'none' || answer.style.display === '') {
+        if (answer) {
           answer.style.display = 'block';
           item.classList.add('active');
-        } else {
-          answer.style.display = 'none';
-          item.classList.remove('active');
         }
-      });
-    }
+      }
+    });
   });
 
-  // Testimonial Slider
-  const testimonialSlider = initializeSlider('.testimonial-grid');
-  if (testimonialSlider) {
-    setInterval(() => {
-      testimonialSlider.next();
-    }, 5000);
-    
-    const prevBtn = document.getElementById('prev-testimonial');
-    const nextBtn = document.getElementById('next-testimonial');
-    if (prevBtn) prevBtn.addEventListener('click', () => testimonialSlider.prev());
-    if (nextBtn) nextBtn.addEventListener('click', () => testimonialSlider.next());
-  }
-
-  // Portfolio Slider
-  const portfolioSlider = initializeSlider('.portfolio-grid');
-  if (portfolioSlider) {
-    const prevBtn = document.getElementById('prev-portfolio');
-    const nextBtn = document.getElementById('next-portfolio');
-    if (prevBtn) prevBtn.addEventListener('click', () => portfolioSlider.prev());
-    if (nextBtn) nextBtn.addEventListener('click', () => portfolioSlider.next());
-  }
-
-  function initializeSlider(selector) {
-    const container = document.querySelector(selector);
-    if (!container) return null;
-    const cards = container.querySelectorAll('article');
-    if (cards.length <= 3) return null;
-
+  document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+    const cards = wrapper.querySelectorAll('article');
+    if (cards.length <= 1) return;
     let currentIndex = 0;
-    const slider = {
-      next: () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateSlider();
-      },
-      prev: () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateSlider();
-      }
-    };
+    const prevButton = wrapper.querySelector('.slider-prev');
+    const nextButton = wrapper.querySelector('.slider-next');
+    let autoAdvance = null;
 
     function updateSlider() {
-      cards.forEach((card, i) => {
-        card.style.display = i === currentIndex ? 'block' : 'none';
+      cards.forEach((card, index) => {
+        card.style.display = index === currentIndex ? 'block' : 'none';
       });
+    }
+
+    function goNext() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateSlider();
+    }
+
+    function goPrev() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateSlider();
+    }
+
+    prevButton?.addEventListener('click', () => {
+      goPrev();
+      resetAutoAdvance();
+    });
+
+    nextButton?.addEventListener('click', () => {
+      goNext();
+      resetAutoAdvance();
+    });
+
+    function resetAutoAdvance() {
+      if (autoAdvance) {
+        clearInterval(autoAdvance);
+      }
+      autoAdvance = setInterval(goNext, 6000);
     }
 
     updateSlider();
-    return slider;
-  }
+    resetAutoAdvance();
+  });
 
-  // Dark Mode Toggle
   if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', function () {
+    darkModeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
 
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☀️';
     }
   }
 
-  // Hamburger Menu
   if (hamburgerMenu) {
-    hamburgerMenu.addEventListener('click', function () {
+    hamburgerMenu.addEventListener('click', () => {
+      const expanded = hamburgerMenu.getAttribute('aria-expanded') !== 'true';
       hamburgerMenu.classList.toggle('active');
-      const headerInner = document.querySelector('.header-inner');
-      if (headerInner) {
-        headerInner.classList.toggle('active');
-      }
+      headerInner?.classList.toggle('active');
+      hamburgerMenu.setAttribute('aria-expanded', String(expanded));
     });
 
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function () {
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
         hamburgerMenu.classList.remove('active');
-        const headerInner = document.querySelector('.header-inner');
-        if (headerInner) {
-          headerInner.classList.remove('active');
-        }
+        headerInner?.classList.remove('active');
+        hamburgerMenu.setAttribute('aria-expanded', 'false');
       });
     });
   }
 
-  // Advanced Form Validation
-  const emailInput = form?.email;
-  const nameInput = form?.name;
-  const messageInput = form?.message;
-
-  if (nameInput) {
-    nameInput.addEventListener('blur', validateName);
-    nameInput.addEventListener('input', () => {
-      if (nameInput.classList.contains('error')) validateName();
-    });
-  }
-
-  if (emailInput) {
-    emailInput.addEventListener('blur', validateEmail);
-    emailInput.addEventListener('input', () => {
-      if (emailInput.classList.contains('error')) validateEmail();
-    });
-  }
-
-  if (messageInput) {
-    messageInput.addEventListener('blur', validateMessage);
-    messageInput.addEventListener('input', () => {
-      if (messageInput.classList.contains('error')) validateMessage();
-    });
-  }
-
-  function validateName() {
-    if (!nameInput) return false;
-    const value = nameInput.value.trim();
-    const error = !value ? 'Ad gerekli' : value.length < 3 ? 'En az 3 karakter' : '';
-    showFieldError(nameInput, error);
-    return !error;
-  }
-
-  function validateEmail() {
-    if (!emailInput) return false;
-    const value = emailInput.value.trim();
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const error = !value ? 'E-posta gerekli' : !regex.test(value) ? 'Geçerli e-posta girin' : '';
-    showFieldError(emailInput, error);
-    return !error;
-  }
-
-  function validateMessage() {
-    if (!messageInput) return false;
-    const value = messageInput.value.trim();
-    const error = !value ? 'Mesaj gerekli' : value.length < 10 ? 'En az 10 karakter' : '';
-    showFieldError(messageInput, error);
-    return !error;
-  }
-
-  function showFieldError(input, error) {
-    input.classList.toggle('error', !!error);
-    let errorDiv = input.nextElementSibling;
-    if (error) {
-      if (!errorDiv || !errorDiv.classList.contains('error-message')) {
-        errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        input.parentNode.insertBefore(errorDiv, input.nextSibling);
-      }
-      errorDiv.textContent = error;
-    } else if (errorDiv && errorDiv.classList.contains('error-message')) {
-      errorDiv.remove();
-    }
-  }
-
-  // Contact Form Submit
-  if (form) {
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const isNameValid = validateName();
-      const isEmailValid = validateEmail();
-      const isMessageValid = validateMessage();
-
-      if (isNameValid && isEmailValid && isMessageValid) {
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-        console.log('Mesaj gönderildi:', { name, email, message });
-        alert('Mesajınız kaydedildi. En kısa zamanda size dönüş yapacağız.');
-        form.reset();
-        document.querySelectorAll('.error-message').forEach(e => e.remove());
-      }
-    });
-  }
-
-  // Back to Top
   if (backToTop) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
-
-    backToTop.addEventListener('click', function () {
+    backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+
+  document.querySelectorAll('form[data-contact-form]').forEach(form => {
+    const formMessage = document.createElement('div');
+    formMessage.className = 'form-message';
+    form.insertBefore(formMessage, form.querySelector('button[type="submit"]'));
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearFormErrors(form);
+
+      const nameInput = form.querySelector('input[name="name"]');
+      const emailInput = form.querySelector('input[name="email"]');
+      const messageInput = form.querySelector('textarea[name="message"]');
+
+      const isNameValid = validateField(nameInput, value => value.length >= 3, 'Adınız en az 3 karakter olmalı');
+      const isEmailValid = validateField(emailInput, value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value), 'Geçerli bir e-posta adresi girin');
+      const isMessageValid = validateField(messageInput, value => value.length >= 10, 'Mesajınız en az 10 karakter olmalı');
+
+      if (!isNameValid || !isEmailValid || !isMessageValid) {
+        showFormMessage('Lütfen formu kontrol edin ve tekrar gönderin.', 'error');
+        return;
+      }
+
+      const action = form.getAttribute('action') || '';
+      const formData = new FormData(form);
+
+      try {
+        if (action.includes('formsubmit.co/ajax')) {
+          const response = await fetch(action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              Accept: 'application/json'
+            }
+          });
+          const result = await response.json();
+          if (!response.ok || result.success === false) {
+            throw new Error(result.message || 'Mesaj gönderilemedi.');
+          }
+          showFormMessage('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.', 'success');
+          form.reset();
+        } else {
+          showFormMessage('Form kaydedildi. En kısa sürede dönüş sağlanacaktır.', 'success');
+          form.reset();
+        }
+      } catch (error) {
+        showFormMessage('Mesaj gönderimi sırasında bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+        console.error('Form gönderim hatası:', error);
+      }
+    });
+  });
+
+  function showFormMessage(message, status) {
+    document.querySelectorAll('.form-message').forEach(element => {
+      element.textContent = message;
+      element.classList.toggle('success', status === 'success');
+      element.classList.toggle('error', status === 'error');
+    });
+  }
+
+  function validateField(input, validator, message) {
+    if (!input) return false;
+    const value = input.value.trim();
+    const isValid = validator(value);
+    if (!isValid) {
+      const errorNode = document.createElement('div');
+      errorNode.className = 'error-message';
+      errorNode.textContent = message;
+      input.classList.add('error');
+      input.parentNode.insertBefore(errorNode, input.nextSibling);
+    }
+    return isValid;
+  }
+
+  function clearFormErrors(form) {
+    form.querySelectorAll('.error-message').forEach(element => element.remove());
+    form.querySelectorAll('.error').forEach(element => element.classList.remove('error'));
   }
 });

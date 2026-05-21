@@ -10,32 +10,40 @@
   <meta property="og:image" content="images/hero-photo.svg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="about.html" />
+  <meta property="og:url" content="about.html" />
+  <meta property="og:site_name" content="Kurumsal Web" />
+  <meta name="twitter:site" content="@KurumsalWeb" />
+  <link rel="icon" href="logo.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Ana içeriğe atla</a>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
         <img class="logo-image" src="logo.svg" alt="Kurumsal Web logo" />
         <span class="brand-text">Kurumsal Web</span>
       </div>
-      <nav>
+      <nav id="site-navigation">
         <a href="index.html">Anasayfa</a>
-        <a class="active-link" href="about.html">Hakkımızda</a>
+        <a class="active-link" href="about.html" aria-current="page">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
       <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
-    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat" aria-expanded="false" aria-controls="site-navigation">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main-content">
     <nav class="breadcrumb">
       <div class="container">
         <a href="index.html">Anasayfa</a> / <span>Hakkımızda</span>
@@ -44,12 +52,12 @@
     <section class="hero hero-about">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h2>Kurumsal Web olarak ne yapıyoruz?</h2>
+          <h1>Kurumsal Web olarak ne yapıyoruz?</h1>
           <p>Şirketiniz için etkileyici dijital deneyimler yaratıyor, marka hedeflerinize uygun tasarım ve geliştirme çözümleri sunuyoruz.</p>
           <a class="button" href="contact.html">Bize Ulaşın</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-illustration.svg" alt="Hakkımızda görseli" />
+          <img loading="lazy" src="images/hero-illustration.svg" alt="Hakkımızda görseli" />
         </div>
       </div>
     </section>
@@ -158,7 +166,16 @@
           </article>
         </div>
       </div>
-    </section>  </main>
+    </section>
+
+    <section class="content-section cta-section">
+      <div class="container cta-card">
+        <h2>Projeniz için profesyonel web çözümü</h2>
+        <p>Dijital varlığınızı güçlendirmek için uzman ekibimizle hemen iletişime geçin.</p>
+        <a class="button" href="contact.html">Teklif Al</a>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
