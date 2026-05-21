@@ -25,14 +25,15 @@ git commit -m "İlk tasarım eklendi"
 - İçeriği kendi şirket ve hizmet bilgilerinle güncelle.
 - Yeni sayfalar veya bölüm ekle.
 - Responsive düzeni zenginleştir.
-- `index.html` içine referanslar, özellikler, neden biz bölümü ve iletişim formu eklendi.
-- Sticky header ve hızlı navigasyon deneyimi sağlandı.
-- Görsel içerikler için SVG illüstrasyon ve ikonlar eklendi.
+- `index.html`, `about.html`, `services.html`, `portfolio.html` ve `contact.html` sayfaları eklendi.
+- Site çok sayfalı bir yapı haline getirildi ve menü sayfa bazlı navigasyona dönüştürüldü.
+- Hakkımızda, hizmetler, portföy, iletişim ve süreç bölümleri ayrı sayfalarda sunuluyor.
+- Görsel içerikler için SVG illüstrasyon, fotoğraf ve portföy görselleri eklendi.
 - Müşteri yorumları ve zenginleştirilmiş footer bölümü eklendi.
 
 ## Commit önerisi
 
 ```bash
 git add .
-git commit -m "Siteyi geliştirdim: müşteri yorumları, yeni içerikler ve footer güncellemesi"
+git commit -m "Çok sayfalı web sitesi yapısına dönüştürüldü"
 ```
