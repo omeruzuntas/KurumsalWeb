@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portföy - Kurumsal Web</title>
+  <meta name="description" content="Kurumsal Web portföy sayfasında başarılı projelerimizi ve müşteri sonuçlarımızı inceleyin." />
+  <meta property="og:title" content="Portföy - Kurumsal Web" />
+  <meta property="og:description" content="Portföyümüzdeki vaka çalışmaları ve projeler ile dijital başarımızı keşfedin." />
+  <meta property="og:image" content="images/hero-photo.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,14 +23,25 @@
         <a href="index.html">Anasayfa</a>
         <a href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
-        <a href="portfolio.html">Portföy</a>
+        <a class="active-link" href="portfolio.html">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
-    <section class="hero">
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Anasayfa</a> / <span>Portföy</span>
+      </div>
+    </nav>
+    <section class="hero hero-portfolio">
       <div class="container hero-grid">
         <div class="hero-copy">
           <h2>Portföyümüz</h2>
@@ -32,7 +49,7 @@
           <a class="button" href="contact.html">Projeni Anlat</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-photo.svg" alt="Portföy görseli" />
+          <img src="images/hero-illustration.svg" alt="Portföy görseli" />
         </div>
       </div>
     </section>
@@ -63,6 +80,48 @@
       </div>
     </section>
 
+    <section class="content-section case-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Vaka Çalışmaları</h2>
+          <p>Gerçek projelerde elde ettiğimiz sonuçları bu vaka çalışmalarıyla paylaşıyoruz.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <h3>Kurumsal Dönüşüm</h3>
+            <p>Bir B2B firmasının web sitesini yenileyerek daha hızlı ve güvenli bir deneyim sunduk.</p>
+          </article>
+          <article class="case-card">
+            <h3>Satış Artışı</h3>
+            <p>E-ticaret platformu için tasarım ve SEO iyileştirmeleriyle dönüşümü artırdık.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section case-study-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Vaka Çalışması Öne Çıkanlar</h2>
+          <p>Bu projelerde elde ettiğimiz önemli sonuçları inceleyin.</p>
+        </div>
+        <div class="case-study-grid">
+          <article class="case-study-card">
+            <h3>Kurumsal yeniden yapılandırma</h3>
+            <p>Site yapısını ve içerik akışını yenileyerek dönüşümü %40 artırdık.</p>
+          </article>
+          <article class="case-study-card">
+            <h3>E-ticaret lansmanı</h3>
+            <p>Ürün yönetimi ve ödeme sürecini düzenleyerek satışları büyüttük.</p>
+          </article>
+          <article class="case-study-card">
+            <h3>SEO iyileştirme</h3>
+            <p>Organik trafiği geliştirerek arama görünürlüğünü yükselttik.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section testimonial-section">
       <div class="container">
         <div class="section-header">
@@ -77,6 +136,29 @@
           <article class="testimonial-card">
             <p>"Web sitemiz artık daha hızlı, daha güvenli ve daha profesyonel görünmeye başladı."</p>
             <span class="testimonial-author">- Elif Kaya, Tekno Çözümler</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section results-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sonuçlar</h2>
+          <p>Projelerimiz, performans ve dönüşüm odaklı sonuçlar sunuyor.</p>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <strong>45%</strong>
+            <p>Ortalama dönüşüm artışı</p>
+          </article>
+          <article class="metric-card">
+            <strong>70%</strong>
+            <p>Sitenin hız skorundaki iyileşme</p>
+          </article>
+          <article class="metric-card">
+            <strong>120+</strong>
+            <p>Mutlu müşteri</p>
           </article>
         </div>
       </div>
@@ -109,5 +191,7 @@
       <p>© 2026 Kurumsal Web. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Başa dön">↑</button>
+  <script src="script.js"></script>
 </body>
 </html>

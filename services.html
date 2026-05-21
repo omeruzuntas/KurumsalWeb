@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hizmetler - Kurumsal Web</title>
+  <meta name="description" content="Kurumsal Web hizmetleri: tasarım, geliştirme ve SEO. Kurumsal projeler için kapsamlı dijital destek sunuyoruz." />
+  <meta property="og:title" content="Hizmetler - Kurumsal Web" />
+  <meta property="og:description" content="Web tasarımından SEO’ya kadar kurumsal hizmetlerimiz ile dijital stratejinizi güçlendirin." />
+  <meta property="og:image" content="images/hero-photo.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,15 +22,26 @@
       <nav>
         <a href="index.html">Anasayfa</a>
         <a href="about.html">Hakkımızda</a>
-        <a href="services.html">Hizmetler</a>
+        <a class="active-link" href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
-    <section class="hero">
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Anasayfa</a> / <span>Hizmetler</span>
+      </div>
+    </nav>
+    <section class="hero hero-services">
       <div class="container hero-grid">
         <div class="hero-copy">
           <h2>Profesyonel hizmetlerimiz</h2>
@@ -32,7 +49,7 @@
           <a class="button" href="contact.html">Hemen Teklif Al</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-photo.svg" alt="Hizmetler görseli" />
+          <img src="images/hero-illustration.svg" alt="Hizmetler görseli" />
         </div>
       </div>
     </section>
@@ -86,6 +103,84 @@
         </div>
       </div>
     </section>
+
+    <section class="content-section service-spotlight-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Neler Sağlıyoruz?</h2>
+          <p>Her adımınızda stratejik ve teknik destek sunan bir partneriz.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Dijital Danışmanlık</h3>
+            <p>Proje planlama, hedef belirleme ve büyüme stratejileri ile yanınızdayız.</p>
+          </article>
+          <article class="service-card">
+            <h3>Kurumsal Entegrasyon</h3>
+            <p>CRM, ödeme sistemleri ve üçüncü taraf araçlarla kusursuz entegrasyon.</p>
+          </article>
+          <article class="service-card">
+            <h3>Uzun Vadeli Destek</h3>
+            <p>Bakım, güncelleme ve performans iyileştirme desteklerimiz devam eder.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section package-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Hizmet Paketleri</h2>
+          <p>İhtiyacınıza göre temel, profesyonel veya özel paketlerimizden birini seçebilirsiniz.</p>
+        </div>
+        <div class="package-grid">
+          <article class="package-card">
+            <h3>Başlangıç Paketi</h3>
+            <p>Hızlı başlangıç için temel web sitesi ve tasarım desteği.</p>
+            <p>3 sayfa, mobil uyumlu tasarım, temel SEO.</p>
+          </article>
+          <article class="package-card">
+            <h3>Profesyonel Paket</h3>
+            <p>Kurumsal web sitesi, SEO desteği ve aylık bakım.</p>
+            <p>5 sayfa, performans optimizasyonu, analitik kurulumu.</p>
+          </article>
+          <article class="package-card">
+            <h3>Özel Paket</h3>
+            <p>Özel tasarım, gelişmiş entegrasyon ve büyüme odaklı strateji.</p>
+            <p>Özel çözüm, API entegrasyonu, uzun vadeli destek.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section pricing-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fiyatlandırma Paketleri</h2>
+          <p>Şeffaf fiyatlandırma ve beklentinize uygun paket seçenekleri.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3>Standart</h3>
+            <p>Kurumsal web sitesi için hızlı başlangıç.</p>
+            <strong>4.999 TL</strong>
+            <p>Responsive tasarım + temel SEO + 1 ay destek.</p>
+          </article>
+          <article class="pricing-card">
+            <h3>Profesyonel</h3>
+            <p>Orta ve büyük ölçekli projeler için ideal.</p>
+            <strong>8.999 TL</strong>
+            <p>Özel tasarım + SEO + bakım + analiz.</p>
+          </article>
+          <article class="pricing-card">
+            <h3>Özel</h3>
+            <p>Tamamen özel özellikler ve uzun dönem destek.</p>
+            <strong>Teklif ile</strong>
+            <p>Entegrasyon + veri yapısı + premium destek.</p>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -114,5 +209,7 @@
       <p>© 2026 Kurumsal Web. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Başa dön">↑</button>
+  <script src="script.js"></script>
 </body>
 </html>

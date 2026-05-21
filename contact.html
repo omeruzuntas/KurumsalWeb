@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>İletişim - Kurumsal Web</title>
+  <meta name="description" content="Kurumsal Web iletişim sayfası. Projeniz için teklif alın, uzman ekibimizle hemen görüşün." />
+  <meta property="og:title" content="İletişim - Kurumsal Web" />
+  <meta property="og:description" content="Kurumsal Web ile iletişime geçin, projeniz için hızlı teklif alın." />
+  <meta property="og:image" content="images/hero-photo.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,13 +24,24 @@
         <a href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
-        <a href="contact.html">İletişim</a>
+        <a class="active-link" href="contact.html">İletişim</a>
       </nav>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
-    <section class="hero">
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Anasayfa</a> / <span>İletişim</span>
+      </div>
+    </nav>
+    <section class="hero hero-contact">
       <div class="container hero-grid">
         <div class="hero-copy">
           <h2>Bizimle iletişime geçin</h2>
@@ -32,8 +49,25 @@
           <a class="button" href="#contact-form">Mesaj Gönder</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-photo.svg" alt="İletişim görseli" />
+          <img src="images/hero-illustration.svg" alt="İletişim görseli" />
         </div>
+      </div>
+    </section>
+
+    <section class="content-section contact-intro-section">
+      <div class="container contact-intro-grid">
+        <article class="contact-card">
+          <h3>Ofisimiz</h3>
+          <p>İstanbul, Türkiye</p>
+        </article>
+        <article class="contact-card">
+          <h3>E-posta</h3>
+          <p>info@kurumsalweb.com</p>
+        </article>
+        <article class="contact-card">
+          <h3>Telefon</h3>
+          <p>+90 555 123 45 67</p>
+        </article>
       </div>
     </section>
 
@@ -60,6 +94,54 @@
 
           <button type="submit" class="button">Gönder</button>
         </form>
+      </div>
+    </section>
+
+    <section class="content-section contact-note-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Hazırsanız projenizi birlikte başlatalım</h2>
+          <p>Bize kısa bir not bırakın, en kısa sürede ihtiyaçlarınıza uygun teklif hazırlayalım.</p>
+          <a class="button" href="#contact-form">Mesaj Gönder</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section social-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Hızlı İletişim Kanalları</h2>
+          <p>Uygun olan kanal üzerindenBizimle yanınızda olacak.</p>
+        </div>
+        <div class="social-grid">
+          <article class="social-card">
+            <h3>WhatsApp</h3>
+            <p>Hızlı iletişim için WhatsApp'tan ulaşın.</p>
+            <a href="https://wa.me/905551234567" target="_blank" class="button">WhatsApp'ta Mesaj At</a>
+          </article>
+          <article class="social-card">
+            <h3>Telefon</h3>
+            <p>Doğrudan aramak için telefon numarasımızı kullanın.</p>
+            <a href="tel:+905551234567" class="button">Ara</a>
+          </article>
+          <article class="social-card">
+            <h3>E-posta</h3>
+            <p>Detaylı bilgi için e-posta gönderiniz.</p>
+            <a href="mailto:info@kurumsalweb.com" class="button">E-posta Gönder</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section map-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>İstanbul'da Bulunun</h2>
+          <p>Ofisimizi ziyaret etmek için konum bilgimiz.</p>
+        </div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.1799098904977!2d28.9737989!3d41.0286392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7350ff1a1a1%3A0x1234567890abcdef!2sİstanbul%2C%20Turkey!5e0!3m2!1sen!2str!4v1234567890" width="100%" height="400" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </section>
   </main>

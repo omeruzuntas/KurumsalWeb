@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hakkımızda - Kurumsal Web</title>
+  <meta name="description" content="Kurumsal Web ekibi, süreçleri ve değerleri hakkında bilgi edinin. Profesyonel tasarım ve teknik destek sunuyoruz." />
+  <meta property="og:title" content="Hakkımızda - Kurumsal Web" />
+  <meta property="og:description" content="Kurumsal Web ekibi ve değerleri hakkında daha fazla bilgi edinin. Profesyonel web çözümleri sunuyoruz." />
+  <meta property="og:image" content="images/hero-photo.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,16 +21,27 @@
       </div>
       <nav>
         <a href="index.html">Anasayfa</a>
-        <a href="about.html">Hakkımızda</a>
+        <a class="active-link" href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
-    <section class="hero">
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Anasayfa</a> / <span>Hakkımızda</span>
+      </div>
+    </nav>
+    <section class="hero hero-about">
       <div class="container hero-grid">
         <div class="hero-copy">
           <h2>Kurumsal Web olarak ne yapıyoruz?</h2>
@@ -32,7 +49,7 @@
           <a class="button" href="contact.html">Bize Ulaşın</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-photo.svg" alt="Hakkımızda görseli" />
+          <img src="images/hero-illustration.svg" alt="Hakkımızda görseli" />
         </div>
       </div>
     </section>
@@ -41,6 +58,29 @@
       <div class="container">
         <h2>Biz Kimiz?</h2>
         <p>Kurumsal Web, her ölçekten işletme için modern ve güvenli web projeleri geliştirir. Amacımız, dijital kimliğinizi güçlendirirken kullanıcı deneyimini ön planda tutmaktır.</p>
+      </div>
+    </section>
+
+    <section class="content-section value-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Misyon & Değerlerimiz</h2>
+          <p>Her projede şeffaflık, kalite ve uzun vadeli iş ortaklığı sağlıyoruz.</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Misyon</h3>
+            <p>Kurumsal markalara dijital dünyada güçlü bir görünürlük sağlamak.</p>
+          </article>
+          <article class="value-card">
+            <h3>Vizyon</h3>
+            <p>Teknolojiyi ve tasarımı birleştirerek sektörde fark yaratan çözümler oluşturmak.</p>
+          </article>
+          <article class="value-card">
+            <h3>Değerler</h3>
+            <p>Güven, kalite ve sürekli gelişim odaklı bir yaklaşım benimsemek.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -97,7 +137,28 @@
         </div>
       </div>
     </section>
-  </main>
+    <section class="content-section team-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Ekibimiz</h2>
+          <p>Yaratıcı, teknik ve proje yönetimi ekiplerimizle çözüm üretiyoruz.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <h3>Elif Yılmaz</h3>
+            <p>Proje Yönetimi</p>
+          </article>
+          <article class="team-card">
+            <h3>Can Demir</h3>
+            <p>UX / UI Tasarım</p>
+          </article>
+          <article class="team-card">
+            <h3>Derya Kaya</h3>
+            <p>Front-end Geliştirme</p>
+          </article>
+        </div>
+      </div>
+    </section>  </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -125,5 +186,7 @@
       <p>© 2026 Kurumsal Web. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Başa dön">↑</button>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kurumsal Web</title>
+  <meta name="description" content="Kurumsal Web ile modern, güvenli ve mobil uyumlu web siteleri oluşturun. Kurumsal çözümlerde profesyonel destek sunuyoruz." />
+  <meta property="og:title" content="Kurumsal Web - Profesyonel Kurumsal Web Siteleri" />
+  <meta property="og:description" content="Modern, güvenli ve kurumsal web çözümleri ile dijital dönüşümünüzü hızlandırın." />
+  <meta property="og:image" content="images/hero-photo.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,25 +20,37 @@
         <span class="brand-text">Kurumsal Web</span>
       </div>
       <nav>
-        <a href="index.html">Anasayfa</a>
+        <a class="active-link" href="index.html">Anasayfa</a>
         <a href="about.html">Hakkımızda</a>
         <a href="services.html">Hizmetler</a>
         <a href="portfolio.html">Portföy</a>
         <a href="contact.html">İletişim</a>
       </nav>
+      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Koyu/Aydın Modu">🌙</button>
     </div>
+    <button class="hamburger-menu" aria-label="Menüü aç/kapat">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main>
-    <section id="home" class="hero">
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Anasayfa</a> / <span>Kurumsal Web</span>
+      </div>
+    </nav>
+    <section id="home" class="hero hero-home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h2>Güvenilir, modern ve profesyonel web çözümleri</h2>
-          <p>İşinizi büyütmek için temiz tasarım, hızlı sayfalar ve mobil uyumlu bir yapı sunuyoruz.</p>
-          <a class="button" href="contact.html">Bize Ulaşın</a>
+          <p class="eyebrow">Dijital Dönüşümü Başlatın</p>
+          <h2>Kurumsal web sitenizi güvenle ve hızla hayata geçiriyoruz.</h2>
+          <p>Profesyonel tasarım, güçlü performans ve sürdürülebilir bir dijital altyapı ile markanız için fark yaratıyoruz.</p>
+          <a class="button" href="contact.html">Teklif Al</a>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-photo.svg" alt="Kurumsal ofis ve web tasarım görseli" />
+          <img src="images/hero-illustration.svg" alt="Kurumsal web tasarım illüstrasyonu" />
         </div>
       </div>
     </section>
@@ -82,6 +100,52 @@
           <article class="why-card">
             <h3>Şeffaf İletişim</h3>
             <p>Proje süresince düzenli raporlar ve net geri bildirimler sunuyoruz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section metrics-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Neden Biz?</h2>
+          <p>Kurumsal projelerdeki tecrübemizi sayısal başarılarla destekliyoruz.</p>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <strong>%98</strong>
+            <p>Müşteri memnuniyeti</p>
+          </article>
+          <article class="metric-card">
+            <strong>250+</strong>
+            <p>Tamamlanmış proje</p>
+          </article>
+          <article class="metric-card">
+            <strong>5 yıl</strong>
+            <p>Sektör deneyimi</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section clients-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Güvenilen İş Ortakları</h2>
+          <p>Sektör liderleriyle çalışıyor, kurumsal markalara güçlü dijital deneyimler sunuyoruz.</p>
+        </div>
+        <div class="client-grid">
+          <article class="client-card">
+            <h3>Finans</h3>
+            <p>Kurumsal proje yönetimi ve güvenlik çözümleri.</p>
+          </article>
+          <article class="client-card">
+            <h3>Teknoloji</h3>
+            <p>Yazılım odaklı web siteleri ve kullanıcı deneyimi tasarımı.</p>
+          </article>
+          <article class="client-card">
+            <h3>Danışmanlık</h3>
+            <p>Profesyonel içerik ve görünürlük destekli web platformu.</p>
           </article>
         </div>
       </div>
@@ -225,6 +289,32 @@
           <article class="faq-item">
             <h3>Proje sonrası destek veriyor musunuz?</h3>
             <p>Evet, yayın sonrası bakım, güncelleme ve performans takibi ile destek sunuyoruz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section blog-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Blog & Haberler</h2>
+          <p>Kurumsal web tasarımı ve dijital dönüşüm hakkında en son bilgiler.</p>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <h3>Web Tasarım Trendleri 2026</h3>
+            <p class="blog-meta">21 Mayıs 2026</p>
+            <p>Bu yılın en Öne Çıkan web tasarım trendleri ve nasıl uygulanacağını öğrenin.</p>
+          </article>
+          <article class="blog-card">
+            <h3>SEO Strate jileri Rehberi</h3>
+            <p class="blog-meta">20 Mayıs 2026</p>
+            <p>Arama motorlarında daha ıyı sıralamalar için etkili SEO stratejileri nelerdir?</p>
+          </article>
+          <article class="blog-card">
+            <h3>Mobil Uyumlu Tasarımın Önemi</h3>
+            <p class="blog-meta">18 Mayıs 2026</p>
+            <p>Mobil kullanıcılar için optimize edilmiş web siteleri nasıl yaratılır?</p>
           </article>
         </div>
       </div>
