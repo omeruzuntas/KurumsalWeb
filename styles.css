@@ -885,6 +885,89 @@ article h3 {
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
 }
 
+.error {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin: -12px 0 12px;
+  display: block;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.slider-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+.slider-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.pricing-comparison {
+  overflow-x: auto;
+  margin-top: 32px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.comparison-table th {
+  background: rgba(37, 99, 235, 0.05);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table .feature-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.comparison-table .check {
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.comparison-table .cross {
+  color: #ef4444;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .contact-section ul {
   list-style: none;
   padding: 0;
